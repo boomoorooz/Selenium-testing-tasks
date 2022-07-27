@@ -1,1 +1,1 @@
-# Selenium tests
+# Selenium tests with javascript.
