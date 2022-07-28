@@ -116,7 +116,7 @@ async function sixthtest() {
 //   await driver.quit();
 // }
 
-async function ninethtest() {
+async function ninthtest() {
   //launch the browser
   let driver = await new Builder().forBrowser("chrome").build();
 
