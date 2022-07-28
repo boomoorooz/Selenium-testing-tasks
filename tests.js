@@ -126,3 +126,22 @@ async function ninthtest() {
   //navigate on radio button
   await driver.findElement(By.xpath('//*[@id="testform"]/input[2]')).click();
 }
+
+async function tenthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Finding red box
+  await driver
+    .findElement(By.id("redbox"))
+    .getText()
+    .then((e) => (nameOfRedBox = e));
+
+  //Placing our text from red box into box number 10
+  await driver
+    .findElement(By.xpath('//*[@id="answer10"]'))
+    .sendKeys(nameOfRedBox);
+}
