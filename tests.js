@@ -85,3 +85,44 @@ async function sixthtest() {
     .findElement(By.xpath('//*[@id="answer6"]'))
     .sendKeys(nameOfClass);
 }
+
+// async function seventhtest() {
+//   //launch the browser
+//   let driver = await new Builder().forBrowser("chrome").build();
+
+//   //navigate to our page
+//   await driver.get("http://timvroom.com/selenium/playground/");
+
+//   //wait for loading page
+//   await driver.manage().timeouts().implicitlyWait(5000);
+
+//   //Run JS script function
+//   ran_this_js_function();
+// }
+
+// async function eighthtest() {
+//   //launch the browser
+//   let driver = await new Builder().forBrowser("chrome").build();
+
+//   //navigate to our page
+//   await driver.get("http://timvroom.com/selenium/playground/");
+
+//   ran_this_js_function();
+//   //Binding variable and JS script function
+
+//   //Placing returned value in answer slot #8
+//   await driver.findElement(By.xpath('//*[@id="answer8"]')).sendKeys("123");
+
+//   await driver.quit();
+// }
+
+async function ninethtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //navigate on radio button
+  await driver.findElement(By.xpath('//*[@id="testform"]/input[2]')).click();
+}
