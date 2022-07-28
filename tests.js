@@ -26,3 +26,16 @@ async function secondtest() {
   //quit the test
   await driver.quit();
 }
+
+async function thirdtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Set occupation on form to Sci-Fi Author
+  await driver
+    .findElement(By.id("occupation"))
+    .sendKeys("Science Fiction Author");
+}
