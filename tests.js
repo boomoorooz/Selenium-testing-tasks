@@ -55,3 +55,14 @@ async function fourthtest() {
   //Entering count number into answer box #4
   await driver.findElement(By.id("answer4")).sendKeys(count);
 }
+
+async function fifthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Click on link
+  await driver.findElement(By.xpath("/html/body/a[3]")).click();
+}
