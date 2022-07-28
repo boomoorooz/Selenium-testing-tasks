@@ -66,3 +66,22 @@ async function fifthtest() {
   //Click on link
   await driver.findElement(By.xpath("/html/body/a[3]")).click();
 }
+
+async function sixthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Finding a red box class name
+  await driver
+    .findElement(By.id("redbox"))
+    .getAttribute("class")
+    .then((e) => (nameOfClass = e));
+
+  //Finding answer box and entering class name into this box
+  await driver
+    .findElement(By.xpath('//*[@id="answer6"]'))
+    .sendKeys(nameOfClass);
+}
