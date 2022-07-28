@@ -39,3 +39,19 @@ async function thirdtest() {
     .findElement(By.id("occupation"))
     .sendKeys("Science Fiction Author");
 }
+
+async function fourthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Count number of blue-boxes
+  await driver
+    .findElements(By.className("bluebox"))
+    .then((elements) => (count = elements.length));
+
+  //Entering count number into answer box #4
+  await driver.findElement(By.id("answer4")).sendKeys(count);
+}
