@@ -94,26 +94,23 @@ async function seventhtest() {
 
   //Run JS script function
   await driver.executeScript("ran_this_js_function();");
-
-  await driver.quit();
 }
-seventhtest();
 
-// async function eighthtest() {
-//   //launch the browser
-//   let driver = await new Builder().forBrowser("chrome").build();
+async function eighthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
 
-//   //navigate to our page
-//   await driver.get("http://timvroom.com/selenium/playground/");
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
 
-//   ran_this_js_function();
-//   //Binding variable and JS script function
-
-//   //Placing returned value in answer slot #8
-//   await driver.findElement(By.xpath('//*[@id="answer8"]')).sendKeys("123");
-
-//   await driver.quit();
-// }
+  //Binding variable and JS script function
+  var value = await driver.executeScript(
+    "return got_return_from_js_function();"
+  );
+  //Placing returned value in answer slot #8
+  await driver.findElement(By.xpath('//*[@id="answer8"]')).sendKeys(value);
+}
+eighthtest();
 
 async function ninthtest() {
   //launch the browser
