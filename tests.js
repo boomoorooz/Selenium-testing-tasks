@@ -1,4 +1,4 @@
-const { Builder, By, Key } = require("selenium-webdriver");
+const { Builder, By, Key, WebDriver } = require("selenium-webdriver");
 
 async function firsttest() {
   //launch the browser
@@ -85,20 +85,19 @@ async function sixthtest() {
     .findElement(By.xpath('//*[@id="answer6"]'))
     .sendKeys(nameOfClass);
 }
+async function seventhtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
 
-// async function seventhtest() {
-//   //launch the browser
-//   let driver = await new Builder().forBrowser("chrome").build();
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
 
-//   //navigate to our page
-//   await driver.get("http://timvroom.com/selenium/playground/");
+  //Run JS script function
+  await driver.executeScript("ran_this_js_function();");
 
-//   //wait for loading page
-//   await driver.manage().timeouts().implicitlyWait(5000);
-
-//   //Run JS script function
-//   ran_this_js_function();
-// }
+  await driver.quit();
+}
+seventhtest();
 
 // async function eighthtest() {
 //   //launch the browser
@@ -144,4 +143,24 @@ async function tenthtest() {
   await driver
     .findElement(By.xpath('//*[@id="answer10"]'))
     .sendKeys(nameOfRedBox);
+}
+
+async function eleventhtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+}
+
+async function twelfthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Set width and height
+  //   await driver.findElement(By.xpath("/html/body")).setRect(650, 850, 1, 1);
+  await WebDriver.manage().window().setRect(1, 2, 850, 650);
 }
