@@ -110,7 +110,6 @@ async function eighthtest() {
   //Placing returned value in answer slot #8
   await driver.findElement(By.xpath('//*[@id="answer8"]')).sendKeys(value);
 }
-eighthtest();
 
 async function ninthtest() {
   //launch the browser
@@ -158,6 +157,5 @@ async function twelfthtest() {
   await driver.get("http://timvroom.com/selenium/playground/");
 
   //Set width and height
-  //   await driver.findElement(By.xpath("/html/body")).setRect(650, 850, 1, 1);
-  await WebDriver.manage().window().setRect(1, 2, 850, 650);
+  await driver.manage().window().setRect({ height: 650, width: 850 });
 }
