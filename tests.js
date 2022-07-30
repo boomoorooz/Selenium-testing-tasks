@@ -1,52 +1,25 @@
 const { Builder, By, Key, WebDriver, until } = require("selenium-webdriver");
 const { elementLocated } = require("selenium-webdriver/lib/until");
 
-async function firsttest() {
+async function tests() {
   //launch the browser
   let driver = await new Builder().forBrowser("chrome").build();
 
   //navigate to our page
   await driver.get("http://timvroom.com/selenium/playground/");
+
   //grab the title of page
   var title = await driver.getTitle();
   //finding an element and pushing this title text in answer #1
   await driver.findElement(By.xpath('//*[@id="answer1"]')).sendKeys(title);
-  //quit the test
-  await driver.quit();
-}
-
-async function secondtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //firstly find an element and after send Keys
   await driver.findElement(By.id("name")).sendKeys("Kilgore Trout");
-  //quit the test
-  await driver.quit();
-}
-
-async function thirdtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Set occupation on form to Sci-Fi Author
   await driver
     .findElement(By.id("occupation"))
     .sendKeys("Science Fiction Author");
-}
-
-async function fourthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Count number of blue-boxes
   await driver
@@ -55,25 +28,9 @@ async function fourthtest() {
 
   //Entering count number into answer box #4
   await driver.findElement(By.id("answer4")).sendKeys(count);
-}
-
-async function fifthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Click on link
   await driver.findElement(By.xpath("/html/body/a[3]")).click();
-}
-
-async function sixthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Finding a red box class name
   await driver
@@ -85,24 +42,9 @@ async function sixthtest() {
   await driver
     .findElement(By.xpath('//*[@id="answer6"]'))
     .sendKeys(nameOfClass);
-}
-async function seventhtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Run JS script function
   await driver.executeScript("ran_this_js_function();");
-}
-
-async function eighthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Binding variable and JS script function
   var value = await driver.executeScript(
@@ -110,25 +52,9 @@ async function eighthtest() {
   );
   //Placing returned value in answer slot #8
   await driver.findElement(By.xpath('//*[@id="answer8"]')).sendKeys(value);
-}
-
-async function ninthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //navigate on radio button
   await driver.findElement(By.xpath('//*[@id="testform"]/input[2]')).click();
-}
-
-async function tenthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Finding red box
   await driver
@@ -140,14 +66,6 @@ async function tenthtest() {
   await driver
     .findElement(By.xpath('//*[@id="answer10"]'))
     .sendKeys(nameOfRedBox);
-}
-
-async function eleventhtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Finding green and orangebox
   let greenbox = await driver.findElement(By.id("greenbox"));
@@ -158,25 +76,9 @@ async function eleventhtest() {
 
   //Placing result of our condition
   await driver.findElement(By.xpath('//*[@id="answer11"]')).sendKeys(whichOne);
-}
-
-async function twelfthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Set width and height
   await driver.manage().window().setRect({ height: 650, width: 850 });
-}
-
-async function thirteenthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Set timeouts
   await driver.manage().setTimeouts({ implicit: 1000 });
@@ -188,14 +90,6 @@ async function thirteenthtest() {
   } catch (e) {
     await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("No");
   }
-}
-
-async function fourteenthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Set timeouts
   await driver.manage().setTimeouts({ implicit: 1000 });
@@ -208,14 +102,6 @@ async function fourteenthtest() {
   } else {
     await driver.findElement(By.xpath('//*[@id="answer14"]')).sendKeys("no");
   }
-}
-
-async function fifteenthtest() {
-  //launch the browser
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  //navigate to our page
-  await driver.get("http://timvroom.com/selenium/playground/");
 
   //Finding element and clicking on it
   await driver.findElement(By.xpath("/html/body/p[2]/a")).click();
@@ -233,4 +119,4 @@ async function fifteenthtest() {
   await driver.findElement(By.id("checkresults")).click();
 }
 
-fifteenthtest();
+tests();
