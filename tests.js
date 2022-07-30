@@ -147,6 +147,16 @@ async function eleventhtest() {
 
   //navigate to our page
   await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Finding green and orangebox
+  let greenbox = await driver.findElement(By.id("greenbox"));
+  let orangebox = await driver.findElement(By.id("orangebox"));
+
+  //Condition for comparing boxes
+  var whichOne = orangebox.y < greenbox.y ? "Orange" : "Green";
+
+  //Placing result of our condition
+  await driver.findElement(By.xpath('//*[@id="answer11"]')).sendKeys(whichOne);
 }
 
 async function twelfthtest() {
