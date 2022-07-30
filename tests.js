@@ -1,4 +1,4 @@
-const { Builder, By, Key, WebDriver } = require("selenium-webdriver");
+const { Builder, By, Key, WebDriver, until } = require("selenium-webdriver");
 
 async function firsttest() {
   //launch the browser
@@ -168,4 +168,23 @@ async function twelfthtest() {
 
   //Set width and height
   await driver.manage().window().setRect({ height: 650, width: 850 });
+}
+
+async function thirteenthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Set timeouts
+  await driver.manage().setTimeouts({ implicit: 1000 });
+
+  //Try catch block for finding div with css selector
+  try {
+    await driver.findElement(By.css("#ishere")).isDisplayed();
+    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("Yes");
+  } catch (e) {
+    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("No");
+  }
 }
