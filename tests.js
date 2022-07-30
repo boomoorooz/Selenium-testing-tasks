@@ -182,9 +182,29 @@ async function thirteenthtest() {
 
   //Try catch block for finding div with css selector
   try {
-    await driver.findElement(By.css("#ishere")).isDisplayed();
+    await driver.findElement(By.css("#ishere")).isSelected();
     await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("Yes");
   } catch (e) {
     await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("No");
+  }
+}
+
+async function fourteenthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Set timeouts
+  await driver.manage().setTimeouts({ implicit: 1000 });
+
+  //Checking purplebox(true or false) and give it to variable 'is'
+  var is = await driver.findElement(By.css("#purplebox")).isDisplayed();
+  //Condition if else
+  if (is === true) {
+    await driver.findElement(By.xpath('//*[@id="answer14"]')).sendKeys("yes");
+  } else {
+    await driver.findElement(By.xpath('//*[@id="answer14"]')).sendKeys("no");
   }
 }
