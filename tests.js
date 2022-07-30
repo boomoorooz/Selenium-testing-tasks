@@ -1,4 +1,5 @@
 const { Builder, By, Key, WebDriver, until } = require("selenium-webdriver");
+const { elementLocated } = require("selenium-webdriver/lib/until");
 
 async function firsttest() {
   //launch the browser
@@ -199,7 +200,7 @@ async function fourteenthtest() {
   //Set timeouts
   await driver.manage().setTimeouts({ implicit: 1000 });
 
-  //Checking purplebox(true or false) and give it to variable 'is'
+  //Checking purplebox(true or false) and give it value to variable 'is'
   var is = await driver.findElement(By.css("#purplebox")).isDisplayed();
   //Condition if else
   if (is === true) {
@@ -208,3 +209,28 @@ async function fourteenthtest() {
     await driver.findElement(By.xpath('//*[@id="answer14"]')).sendKeys("no");
   }
 }
+
+async function fifteenthtest() {
+  //launch the browser
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  //navigate to our page
+  await driver.get("http://timvroom.com/selenium/playground/");
+
+  //Finding element and clicking on it
+  await driver.findElement(By.xpath("/html/body/p[2]/a")).click();
+
+  await driver
+    .wait(until.elementLocated(By.xpath("/html/body/a[4]")), 10000)
+    .click();
+
+  let alert = await driver.switchTo().alert();
+
+  await alert.accept();
+
+  await driver.findElement(By.name("submit")).click();
+
+  await driver.findElement(By.id("checkresults")).click();
+}
+
+fifteenthtest();
