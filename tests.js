@@ -72,7 +72,7 @@ async function tests() {
   let orangebox = await driver.findElement(By.id("orangebox"));
 
   //Condition for comparing boxes
-  var whichOne = orangebox.y < greenbox.y ? "Orange" : "Green";
+  var whichOne = orangebox.y < greenbox.y ? "orange" : "green";
 
   //Placing result of our condition
   await driver.findElement(By.xpath('//*[@id="answer11"]')).sendKeys(whichOne);
@@ -86,9 +86,9 @@ async function tests() {
   //Try catch block for finding div with css selector
   try {
     await driver.findElement(By.css("#ishere")).isSelected();
-    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("Yes");
+    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("yes");
   } catch (e) {
-    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("No");
+    await driver.findElement(By.xpath('//*[@id="answer13"]')).sendKeys("no");
   }
 
   //Set timeouts
