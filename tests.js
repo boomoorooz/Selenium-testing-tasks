@@ -68,8 +68,8 @@ async function tests() {
     .sendKeys(nameOfRedBox);
 
   //Finding green and orangebox
-  let greenbox = await driver.findElement(By.id("greenbox"));
-  let orangebox = await driver.findElement(By.id("orangebox"));
+  let greenbox = await driver.findElement(By.id("greenbox")).getRect();
+  let orangebox = await driver.findElement(By.id("orangebox")).getRect();
 
   //Condition for comparing boxes
   var whichOne = orangebox.y < greenbox.y ? "orange" : "green";
@@ -117,6 +117,19 @@ async function tests() {
   await driver.findElement(By.name("submit")).click();
 
   await driver.findElement(By.id("checkresults")).click();
+
+  await driver
+    .findElement(By.id("showresults"))
+    .getText()
+    .then((e) => (results = e));
+
+  console.log(results);
+
+  driver.takeScreenshot().then(function (image, err) {
+    require("fs").writeFile("out.png", image, "base64", function (err) {
+      console.log(err);
+    });
+  });
 }
 
 tests();
